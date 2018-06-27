@@ -36,6 +36,14 @@ class Api::V1::CommodityController < ApplicationController
     render json: {status: 'SUCCESS', message: 'Deleted Commodity', data: commodity}, status: :ok
   end
 
+  def search
+    response = RestClient::Request.execute(
+      method: :get,
+      url: "http://api.walmartlabs.com/v1/search?apiKey=ah23mv2wvv5y5q8vps5545g4&query=#{params[:query]}&sort=price&order=asc"
+    )
+    render response
+  end
+
 
   private
 

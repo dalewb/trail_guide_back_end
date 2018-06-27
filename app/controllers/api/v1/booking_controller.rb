@@ -1,5 +1,5 @@
-module Api 
-  module v1
+module Api
+  module V1
     class BookingController < ApplicationController
 
     end

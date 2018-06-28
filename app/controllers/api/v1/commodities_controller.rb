@@ -1,4 +1,4 @@
-class Api::V1::CommodityController < ApplicationController
+class Api::V1::CommoditiesController < ApplicationController
 
   def index
     commodities = Commodity.all
@@ -39,9 +39,9 @@ class Api::V1::CommodityController < ApplicationController
   def search
     response = RestClient::Request.execute(
       method: :get,
-      url: "http://api.walmartlabs.com/v1/search?apiKey=ah23mv2wvv5y5q8vps5545g4&query=#{params[:query]}&sort=price&order=asc"
+      url: "http://api.walmartlabs.com/v1/search?apiKey=ah23mv2wvv5y5q8vps5545g4&query=#{params[:searchTerm]}&sort=price&order=asc"
     )
-    render response
+    render json: response.body
   end
 
 

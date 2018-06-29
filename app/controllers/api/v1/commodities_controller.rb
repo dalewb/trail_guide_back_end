@@ -12,7 +12,6 @@ class Api::V1::CommoditiesController < ApplicationController
 
   def create
     commodity = Commodity.new(commodity_params)
-
     if commodity.save
       render json: {status: 'SUCCESS', message: 'Saved Commodity', data: commodity}, status: :ok
     else
@@ -48,7 +47,7 @@ class Api::V1::CommoditiesController < ApplicationController
   private
 
   def commodity_params
-    params.permit(:type, :name, :price, :img_url)
+    params.permit(:commodity_type, :name, :price, :img_url)
   end
 
 end

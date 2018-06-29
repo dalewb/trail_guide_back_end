@@ -39,7 +39,7 @@ class Api::V1::UsersController < ApplicationController
   private
 
   def user_params
-    params.permit(:user_id, :good_id, :date_needed, :date_usered, :priority)
+    params.permit(:user_type, :username, :gender, :start_date)
   end
 
 end

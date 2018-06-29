@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 2018_06_27_202053) do
   end
 
   create_table "commodities", force: :cascade do |t|
-    t.string "type"
+    t.string "commodity_type"
     t.string "name"
     t.integer "price"
     t.string "img_url"
@@ -50,7 +50,7 @@ ActiveRecord::Schema.define(version: 2018_06_27_202053) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "type"
+    t.string "user_type"
     t.string "username"
     t.string "gender"
     t.string "start_date"

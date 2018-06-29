@@ -39,7 +39,7 @@ class Api::V1::PostsController < ApplicationController
   private
 
   def post_params
-    params.permit(:user_id, :good_id, :date_needed, :date_posted, :priority)
+    params.permit(:user_id, :commodity_id, :date_needed, :date_posted, :priority)
   end
 
 end

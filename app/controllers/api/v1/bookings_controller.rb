@@ -39,7 +39,7 @@ class Api::V1::BookingsController < ApplicationController
   private
 
   def booking_params
-    params.permit(:user_id, :good_id, :date_needed, :date_bookinged, :priority)
+    params.permit(:user_id, :location_id, :date, :time)
   end
 
 end

@@ -23,7 +23,7 @@ class Api::V1::LocationsController < ApplicationController
   private
 
   def location_params
-    params.permit(:user_id, :good_id, :date_needed, :date_locationed, :priority)
+    params.permit(:user_id, :name, :latitude, :longitude)
   end
 
 end

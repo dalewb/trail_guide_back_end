@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_02_204552) do
+ActiveRecord::Schema.define(version: 2018_07_03_141944) do
 
   create_table "bookings", force: :cascade do |t|
     t.integer "user_id"
@@ -31,7 +31,6 @@ ActiveRecord::Schema.define(version: 2018_07_02_204552) do
   end
 
   create_table "locations", force: :cascade do |t|
-    t.integer "user_id"
     t.string "name"
     t.integer "latitude"
     t.integer "longitude"

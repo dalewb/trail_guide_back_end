@@ -35,6 +35,12 @@ class Api::V1::UsersController < ApplicationController
     render json: {status: 'SUCCESS', message: 'Deleted User', data: user}, status: :ok
   end
 
+  def show_user_locations
+    user = User.find(params[:id])
+    locations = user.locations
+    render json: {status: 'SUCCESS', message: 'Loaded Locations', data: locations}, status: :ok
+  end
+
 
   private
 

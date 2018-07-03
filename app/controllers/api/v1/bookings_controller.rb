@@ -35,6 +35,11 @@ class Api::V1::BookingsController < ApplicationController
     render json: {status: 'SUCCESS', message: 'Deleted Booking', data: booking}, status: :ok
   end
 
+  def get_user_bookings
+    bookings = Booking.all.select { |booking| booking.user_id.to_s == params[:id].to_s}
+    render json: {status: 'SUCCESS', message: 'Returned bookings', data: bookings}, status: :ok
+  end
+
 
   private
 

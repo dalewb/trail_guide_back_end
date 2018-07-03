@@ -36,8 +36,14 @@ class Api::V1::BookingsController < ApplicationController
   end
 
   def get_user_bookings
+    info = []
     bookings = Booking.all.select { |booking| booking.user_id.to_s == params[:id].to_s}
-    render json: {status: 'SUCCESS', message: 'Returned bookings', data: bookings}, status: :ok
+    bookings.each do |booking|
+      location = Location.all.find {|location| location.id == booking.location_id}
+      data = {lat: location.latitude, lon: location.longitude, name: location.name, desc: location.description, date: booking.date, time: booking.time, id: booking.id}
+      info << data
+    end
+    render json: {status: 'SUCCESS', message: 'Returned bookings', data: info}, status: :ok
   end
 
 

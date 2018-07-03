@@ -30,7 +30,7 @@ class Api::V1::BookingsController < ApplicationController
   end
 
   def destroy
-    booking = Booking.find(params[:id])
+    booking = Booking.all.find {|booking| booking.location_id.to_s == params[:id]}
     booking.destroy
     render json: {status: 'SUCCESS', message: 'Deleted Booking', data: booking}, status: :ok
   end

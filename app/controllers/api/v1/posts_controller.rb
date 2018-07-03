@@ -12,7 +12,6 @@ class Api::V1::PostsController < ApplicationController
 
   def create
     post = Post.new(post_params)
-
     if post.save
       render json: {status: 'SUCCESS', message: 'Loaded Post', data: post}, status: :ok
     else

@@ -34,6 +34,11 @@ class Api::V1::PostsController < ApplicationController
     render json: {status: 'SUCCESS', message: 'Deleted Post', data: post}, status: :ok
   end
 
+  def get_user_posts
+    posts = Post.all.select {|post| post.user_id.to_s == params[:user_id]}
+    render json: posts, include: :commodity
+  end
+
 
   private
 

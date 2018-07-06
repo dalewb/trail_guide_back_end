@@ -2,7 +2,7 @@ class Api::V1::BookingsController < ApplicationController
 
   def index
     bookings = Booking.all
-    render json: {status: 'SUCCESS', message: 'Loaded Bookings', data: bookings}, status: :ok
+    render json: bookings, include: [:user, :location]
   end
 
   def show
@@ -12,7 +12,6 @@ class Api::V1::BookingsController < ApplicationController
 
   def create
     booking = Booking.new(booking_params)
-
     if booking.save
       render json: {status: 'SUCCESS', message: 'Loaded Booking', data: booking}, status: :ok
     else

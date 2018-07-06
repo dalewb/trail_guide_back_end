@@ -2,7 +2,7 @@ class Api::V1::PostsController < ApplicationController
 
   def index
     posts = Post.all
-    render json: {status: 'SUCCESS', message: 'Loaded Posts', data: posts}, status: :ok
+    render json: posts, include: [:commodity, :user]
   end
 
   def show

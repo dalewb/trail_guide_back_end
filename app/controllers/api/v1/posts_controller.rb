@@ -39,7 +39,7 @@ class Api::V1::PostsController < ApplicationController
     posts = Post.all.select {|post| post.user_id.to_s == params[:user_id]}
     posts.each do |post|
       commodity = Commodity.all.find {|commodity| commodity.id == post.commodity_id}
-      data = {commodity_type: commodity.commodity_type, commodity_name: commodity.name, commodity_price: commodity.price, img_url: commodity.img_url, date_needed: post.date_needed, date_posted: post.date_posted, priority: post.priority}
+      data = {id: post.id, commodity_type: commodity.commodity_type, commodity_name: commodity.name, commodity_price: commodity.price, img_url: commodity.img_url, date_needed: post.date_needed, date_posted: post.date_posted, priority: post.priority}
       info << data
     end
     render json: info

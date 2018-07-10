@@ -32,11 +32,11 @@ ActiveRecord::Schema.define(version: 2018_07_06_112615) do
 
   create_table "locations", force: :cascade do |t|
     t.string "name"
-    t.integer "latitude"
-    t.integer "longitude"
+    t.float "latitude"
+    t.float "longitude"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "description"
+    t.text "description"
   end
 
   create_table "posts", force: :cascade do |t|

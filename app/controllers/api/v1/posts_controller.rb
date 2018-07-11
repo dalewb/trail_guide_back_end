@@ -34,7 +34,7 @@ class Api::V1::PostsController < ApplicationController
     render json: {status: 'SUCCESS', message: 'Deleted Post', data: post}, status: :ok
   end
 
-  def get_user_posts
+  def get_user_commodities
     info = []
     posts = Post.all.select {|post| post.user_id.to_s == params[:user_id]}
     posts.each do |post|
@@ -43,6 +43,11 @@ class Api::V1::PostsController < ApplicationController
       info << data
     end
     render json: info
+  end
+
+  def get_user_posts
+    posts = Posts.all.select {|post| post.user_id.to_s == params[:user_id]}
+    render json: posts
   end
 
 

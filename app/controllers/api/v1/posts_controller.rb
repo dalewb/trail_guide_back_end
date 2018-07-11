@@ -46,7 +46,7 @@ class Api::V1::PostsController < ApplicationController
   end
 
   def get_user_posts
-    posts = Posts.all.select {|post| post.user_id.to_s == params[:user_id]}
+    posts = Post.all.select {|post| post.user_id.to_s == params[:user_id]}
     render json: posts
   end
 

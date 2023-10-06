@@ -18,7 +18,7 @@ gem 'puma', '~> 3.11'
 
 gem 'rest-client'
 
-gem 'active_model_serializers', '>= 0.10.7'
+gem 'active_model_serializers', '>= 0.10.14'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
